@@ -3,11 +3,16 @@
 
 #include <iostream>
 
+void myMethod(int* parameterThatChange, int* parameterThatChange2, int parameterThatNotChange) {
+    *parameterThatChange = 15;
+    *parameterThatChange2 = 40;
+    parameterThatNotChange = 9999;
+}
+
 int main()
 {
     int premenna = 10;
     int* pointerPremennej = &premenna;
-
 
     printf("derefencia 'pointerPremennej' %d\n", *pointerPremennej);
     printf("pointer/adresa 'premenna'  %d\n", pointerPremennej);
@@ -34,15 +39,16 @@ int main()
     printf("pointer/adresa 'premenna'  %d\n", pointerPremennej);
     printf("pointer/adresa 'premenna' %d\n", &premenna);
     printf("pointer/adresa 'pointerPremennej' %d\n", &pointerPremennej);
+
+
+    int argThatChange = 42;
+    int argThatChange2 = 10;
+    int argThatNotChange = 66;
+    int* pointerToArgThatChange = &argThatChange2;
+
+    myMethod(&argThatChange, pointerToArgThatChange, argThatNotChange);
+    printf("argThatChange %d\n", argThatChange);
+    printf("argThatChange2 %d\n", argThatChange2);
+    printf("argThatNotChange %d\n", argThatNotChange);
+
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
